@@ -1,6 +1,7 @@
-FROM microsoft/aspnetcore:1.1
-ARG source
-WORKDIR /app
-EXPOSE 80
-COPY /src .
-ENTRYPOINT ["dotnet", "ebdemo.dll"]
+# The `FROM` instruction specifies the base image. You are
+# extending the `microsoft/aspnet` image.
+
+FROM microsoft/aspnet
+
+# The final instruction copies the site you published earlier into the container.
+COPY /src /inetpub/wwwroot
